@@ -1,0 +1,30 @@
+# --- Personal files: never committed -------------------------------------
+# Each of us keeps our own journal and learning notes in personal/.
+personal/
+# Personal Claude Code instructions (the shared ones live in CLAUDE.md).
+CLAUDE.local.md
+.claude/settings.local.json
+
+# --- Data: downloaded by script, never committed -------------------------
+# The sensor files are large; data/README.md says where they come from.
+data/**
+!data/README.md
+
+# --- Models and caches ---------------------------------------------------
+models/
+*.joblib
+*.pkl
+__pycache__/
+.pytest_cache/
+.ipynb_checkpoints/
+.ruff_cache/
+.venv/
+venv/
+
+# --- Secrets (API keys go in .env, never in code) ------------------------
+.env
+
+# --- OS / editors --------------------------------------------------------
+.DS_Store
+.vscode/
+.idea/
