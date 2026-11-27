@@ -31,8 +31,8 @@ separately; this file is the record in the repo.
 | P1 | Decision context: who decides, when, what action | 10 | `docs/problem_framing.md` | in progress |
 | P2 | Cost of errors; agree recall / false-alarm target with Modelling lead | 10–11 | same doc + `src/config.py` | to do |
 | P3 | Talk to one real user, if possible | 11 | notes in the doc | to do |
-| P4 | Sketch the app screens | 11 | `docs/app_wireframe.md` | first version; justifications to write |
-| P5 | Streamlit app with a placeholder model | 12 | `app/app.py`, `src/predict.py` | done (demo data + naive rule) |
+| P4 | Sketch the app screens | 11 | `docs/app_wireframe.md` | to do |
+| P5 | Streamlit app with a placeholder model | 12 | `app/app.py` | to do |
 | P6 | Connect the real model | 13 | `app/` | to do |
 | P7 | Plain-language explainer and limitations | 13 | `docs/` + in the app | to do |
 | P8 | Report sections (intro, framing, deployment, limitations) + presentation slots 1 and 5 | 13–15 | report, slides | to do |

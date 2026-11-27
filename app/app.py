@@ -15,7 +15,7 @@ import streamlit as st  # noqa: E402
 
 from app.demo_data import make_demo_daily  # noqa: E402
 from src import config  # noqa: E402
-from src.predict import Forecast, predict_next_day  # noqa: E402
+from src.predict import Forecast, load_model, predict_next_day  # noqa: E402
 
 # Draft wording: Eric to confirm in docs/problem_framing.md (tasks P1 and P3).
 ADVICE = {
@@ -37,6 +37,12 @@ def load_daily() -> tuple[pd.DataFrame, bool]:
         df = pd.read_csv(config.DAILY_PM25_FILE)
         return df[list(config.DAILY_COLUMNS)], False
     return make_demo_daily(end=date.today()), True
+
+
+@st.cache_resource
+def get_model():
+    """The Modelling lead's saved model, or None (then the simple rule is used)."""
+    return load_model()
 
 
 def nice_date(d: date) -> str:
@@ -88,7 +94,7 @@ def main() -> None:
     site_rows = daily[daily["site"] == site].sort_values("date")
     as_of = pd.to_datetime(daily["date"]).max().date()
 
-    f = predict_next_day(site_rows, as_of=as_of, site=site)
+    f = predict_next_day(site_rows, as_of=as_of, site=site, model=get_model())
     status_card(f)
 
     st.subheader("How we worked this out")
@@ -97,8 +103,9 @@ def main() -> None:
                  f"We warn when we expect tomorrow to go above **{config.PM25_THRESHOLD:g} µg/m³**, "
                  "the level where air becomes unhealthy for sensitive groups such as children "
                  "with asthma.")
-    st.write(f"Method: {f.method}." + ("" if f.probability is None
-                                        else f" Chance of unhealthy air: {f.probability:.0%}."))
+    if f.probability is not None:
+        st.metric("Chance of unhealthy air tomorrow", f"{f.probability:.0%}")
+    st.write(f"Method: {f.method}.")
     st.altair_chart(history_chart(site_rows, as_of), width="stretch")
 
     with st.expander("What do these words mean?"):
