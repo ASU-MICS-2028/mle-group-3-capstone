@@ -11,7 +11,7 @@ separately; this file is the record in the repo.
 | **Problem lead** | Eric Elikplim Sunu (@ElikplimSunu) | The decision and its user, cost of errors, the Streamlit app, the plain-language explainer | Ethics lead's work |
 | **Data lead** | Clifford Yeboah (@YCliffe21) | Downloading data, cleaning, daily aggregation, leakage checks, the data note | Modelling lead's work |
 | **Modelling lead** | Mubarak Tijani (@Xenongt1) | Features, five models + naive baseline, time-based validation, metrics, saved final model | Data lead's work |
-| **Ethics & documentation lead** | Kobina | Datasheet, model card, per-site fairness, proxy analysis, regulatory mapping, assembling the IEEE report | Problem lead's work |
+| **Ethics & documentation lead** | Kobina (@AdzeyenaOpei) | Datasheet, model card, per-site fairness, proxy analysis, regulatory mapping, assembling the IEEE report | Problem lead's work |
 
 **Review rule:** nothing counts as done until the named reviewer has approved the pull request.
 
