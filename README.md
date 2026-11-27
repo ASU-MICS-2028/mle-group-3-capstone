@@ -3,8 +3,8 @@
 Next-day unhealthy-air warnings for Accra neighbourhoods, built with classical machine learning.
 
 **Course:** ICS553 Machine Learning Essentials, Ashesi University, Fall 2026 (Final Capstone Project)
-**Group 3:** Eric Sunu (Problem lead) · Clifford (Data lead) · Mubarak (Modelling lead) · Kobina (Ethics & documentation lead)
-**Status:** proposal approved; Week 10, starting data acquisition and problem framing.
+**Group 3:** Eric Elikplim Sunu (Problem lead) · Clifford Yeboah (Data lead) · Mubarak Tijani (Modelling lead) · Kobina (Ethics & documentation lead)
+**Status:** see the [Roadmap issue](https://github.com/ASU-MICS-2028/mle-group-3-capstone/issues/35) for every task, owner and deadline.
 
 ## The problem in one sentence
 Each evening, predict whether tomorrow's average PM2.5 at an Accra sensor site will go above
@@ -45,4 +45,5 @@ python -m pytest -q            # check everything works
 - Keep personal notes in `personal/` (ignored by Git).
 
 ## Who does what
-See `TASKS.md`.
+Roles and reviewers: `TASKS.md`. Every task is a GitHub issue, grouped by milestone in the
+[Roadmap issue](https://github.com/ASU-MICS-2028/mle-group-3-capstone/issues/35).
