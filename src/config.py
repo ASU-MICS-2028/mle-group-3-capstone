@@ -18,6 +18,40 @@ MODELS = ROOT / "models"
 FIGURES = ROOT / "reports" / "figures"
 DOCS = ROOT / "docs"
 
+DAILY_PM25_FILE = DATA_PROCESSED / "daily_pm25.csv"
+"""The cleaned table the Data lead's code writes and the app reads.
+
+One row per sensor site per day, with these columns:
+  site       text, the sensor site's name or id
+  date       the calendar day (YYYY-MM-DD, Accra time)
+  pm25_mean  that day's mean PM2.5 in µg/m³ (empty if too few readings)
+"""
+DAILY_COLUMNS = ("site", "date", "pm25_mean")
+
+
+# --- The decision ------------------------------------------------------------
+# Owned by the Problem lead. The reasoning behind each value is in
+# docs/problem_framing.md; change a value there and here together.
+
+CITY = "Accra"
+TIMEZONE = "Africa/Accra"
+
+PM25_THRESHOLD = 35.0
+"""µg/m³. The label is 1 when the next day's 24-hour mean PM2.5 is ABOVE this.
+
+The US EPA AQI (2024) puts 35.5 and above in "Unhealthy for Sensitive Groups"
+(the "Moderate" band tops out at 35.4). Our approved proposal says "above 35".
+"""
+
+HORIZON_DAYS = 1
+"""We predict the day after the day the prediction is made (an evening warning)."""
+
+HARMATTAN_MONTHS = (11, 12, 1, 2)
+"""November to February: the dry, dusty Harmattan season (Alli et al., 2021)."""
+
+WHO_24H_GUIDELINE = 15.0
+"""µg/m³. WHO 2021 guideline for the 24-hour mean. Context only; not our label."""
+
 
 def set_seed(seed: int = SEED) -> None:
     """Fix every random number generator we use. Call at the top of each notebook.
