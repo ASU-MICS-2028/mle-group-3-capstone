@@ -18,6 +18,16 @@ MODELS = ROOT / "models"
 FIGURES = ROOT / "reports" / "figures"
 DOCS = ROOT / "docs"
 
+DAILY_PM25_FILE = DATA_PROCESSED / "daily_pm25.csv"
+"""The cleaned table the Data lead's code writes and the app reads.
+
+One row per sensor site per day, with these columns:
+  site       text, the sensor site's name or id
+  date       the calendar day (YYYY-MM-DD, Accra time)
+  pm25_mean  that day's mean PM2.5 in µg/m³ (empty if too few readings)
+"""
+DAILY_COLUMNS = ("site", "date", "pm25_mean")
+
 
 # --- The decision ------------------------------------------------------------
 # Owned by the Problem lead. The reasoning behind each value is in

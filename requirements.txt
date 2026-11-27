@@ -11,6 +11,6 @@ requests>=2.31
 # Notebooks
 jupyter>=1.0
 # The web app (deployment artefact)
-streamlit>=1.30
+streamlit>=1.50
 # Tests
 pytest>=7.4
